@@ -27,20 +27,20 @@ public class Calculadora {
             double resultado = 0;
             switch (operaçao) {
                 case '+':
-                    resultado = numero1 + numero2;
+                    resultado = somar(numero1, numero2);
                     break;
                 case '-':
-                    resultado = numero1 - numero2;
+                    resultado = subtrair(numero1, numero2);
                     break;
                 case '*':
-                    resultado = numero1 * numero2;
+                    resultado = multiplicar(numero1 , numero2);
                     break;
                 case '/':
                     if (numero2 == 0) {
                         System.out.println("Erro: não é possivel dividir por zero!");
                         continue;
                     }
-                    resultado = numero1 / numero2;
+                    resultado = dividir(numero1, numero2);
                     break;
                 default:
                     System.out.println("Operaçao Invalida");
@@ -58,4 +58,18 @@ public class Calculadora {
 
         System.out.println(" Calculadora encerrada. Até logo!");
     }
+
+    public static double somar(double a, double b){
+        return a + b;
+    }
+    public static double subtrair(double a, double b){
+        return a- b;
+    }
+    public static double multiplicar(double a, double b){
+        return a * b;
+    }
+    public static double dividir(double a, double b){
+        return a/b;
+    }
+
 }
