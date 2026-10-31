@@ -9,14 +9,10 @@ public class Calculadora {
         boolean continuar = true;
         while(continuar) {
 
-            System.out.print("Digite o Primeiro Numero: ");
-            double numero1 = teclado.nextDouble();
-
+            double numero1 = lerNumero( teclado,"Digite o Primeiro Numero: ");
             System.out.println("Voce digitou: " + numero1);
 
-            System.out.print("Digite o Segundo Numero: ");
-            double numero2 = teclado.nextDouble();
-
+            double numero2 = lerNumero( teclado,"Digite o Segundo Numero: ");
             System.out.println("Voce digitou: " + numero2);
 
             System.out.print("Digite a Operaçao(+, -, *, /): ");
@@ -48,12 +44,7 @@ public class Calculadora {
             }
             System.out.println("Resultado: " + resultado);
 
-            System.out.print("Deseja fazer outra conta? (s/n): ");
-            char resposta = teclado.next().charAt(0);
-
-            if (resposta == 'n'){
-                continuar = false;
-            }
+            continuar = desejaContinuar(teclado);
         }
 
         System.out.println(" Calculadora encerrada. Até logo!");
@@ -70,6 +61,15 @@ public class Calculadora {
     }
     public static double dividir(double a, double b){
         return a/b;
+    }
+    public static double lerNumero(Scanner teclado, String mensagem){
+        System.out.print(mensagem);
+        return teclado.nextDouble();
+    }
+    public static boolean desejaContinuar(Scanner teclado){
+        System.out.print("Deseja fazer outra conta? (s/n):");
+        char resposta = teclado.next().charAt(0);
+        return resposta == 's'|| resposta == 'S';
     }
 
 }
